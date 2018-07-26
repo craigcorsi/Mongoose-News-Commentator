@@ -1,30 +1,65 @@
-body { background-color: #F2F6D0 }
-      #wrapper {
-        width: 960px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 5%;
-      }
-      #articles {
-        display: inline-block;
-        overflow: auto;
-        width: 100%;
-        height: 700px;
-      }
-      #notes {
-        float: right;
-        width: 100%;
-      }
-      textarea, input {
-        display: block;
-        width: 100%;
-        background-color: #FCF5C7;
-      }
-      input {
-        height: 36px;
-        font-size: 24px;
-      }
-      textarea {
-        height: 200px;
-        font-size: 18px;
-      }
+body { 
+  background-color: #F79D00;
+}
+
+div .titlebar {
+  border: 2px solid yellow;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: "Hanalei Fill", cursive;
+  font-size: 80px;
+  color: red;
+}
+
+h2 {
+  margin-top: -20px;
+  font-size: 15px;
+}
+
+h2, h3, small {
+  font-family: "McLaren", cursive;
+}
+
+button {
+  margin: 0 auto;
+  font-family: "Hanalei Fill", cursive;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: #20d4ea;
+  border: 1px solid black;
+}
+
+#wrapper {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5%;
+}
+#articles {
+  display: inline-block;
+  overflow: auto;
+  width: 100%;
+  height: 700px;
+}
+#notes {
+  float: right;
+  width: 100%;
+}
+textarea, input {
+  display: block;
+  width: 100%;
+  background-color: #FCF5C7;
+}
+input {
+  height: 36px;
+  font-size: 24px;
+}
+textarea {
+  height: 200px;
+  font-size: 18px;
+}

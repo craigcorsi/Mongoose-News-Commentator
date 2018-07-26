@@ -10,6 +10,18 @@ $(document).ready(function () {
 
 
   // Whenever someone clicks a p tag
+  $(document).on("click", "#btn-scrape", function(event){
+    event.preventDefault();
+    $.ajax({
+      method: "GET",
+      url: "/scrape"
+    }).then(function(data){
+      console.log(data);
+      location.reload();
+    });
+  });
+
+
   $(document).on("click", "p", function () {
     // Empty the notes from the note section
     $("#notes").empty();

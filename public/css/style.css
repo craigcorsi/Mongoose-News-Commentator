@@ -29,6 +29,7 @@ button {
   font-family: "Hanalei Fill", cursive;
   font-size: 50px;
   color: black;
+  border: 2px solid black;
 }
 
 small {
@@ -60,7 +61,8 @@ small {
 textarea, input {
   display: block;
   width: 100%;
-  background-color: #FCF5C7;
+  background-color: rgb(201, 212, 178);
+  border: 2px solid black;
 }
 input {
   height: 36px;
@@ -86,4 +88,16 @@ textarea {
 
 .article-title-holder {
   padding-top: 30px;
+}
+
+.btn-scrape {
+  width: 100%;
+}
+
+.savenote {
+  width: 100%;
+}
+
+#notes {
+  text-align: center;
 }

@@ -14,7 +14,7 @@ $(document).ready(function () {
       var newContainer = $("<div>").addClass("container");
       var newRow = $('<div>').addClass("row");
       var newLCol = $('<div>').addClass("col-sm-3 col-xs-12");
-      var newRCol = $('<div>').addClass("col-sm-9 col-xs-12");
+      var newRCol = $('<div>').addClass("col-sm-9 col-xs-12 article-title-holder");
       newLCol.append(`<img class="thumbnail" src="${thumbnail}">`);
       var h2 = $('<h2>').append(data[i].title);
       var aa = $('<a>').attr("href", link).text("Read this article");

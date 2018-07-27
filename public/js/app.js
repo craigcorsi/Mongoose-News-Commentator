@@ -3,26 +3,46 @@ $(document).ready(function () {
   $.getJSON("/articles", function (data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
+      // Use stock photo if no thumbnail
+      var thumbnail = data[i].thumbnail ? data[i].thumbnail : "https://image.shutterstock.com/image-photo/dieting-questions-concept-diet-worries-260nw-183987839.jpg"
+      // Append beginning of reddit url if needed
+      var link = data[i].link.startsWith("http") ? data[i].link : "https://old.reddit.com" + data[i].link;
       // Display the apropos information on the page
-      $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+      var recipeCard = $("<div>").addClass("recipe-card");
+      recipeCard.data('id', data[i]._id);
+      console.log(recipeCard.html());
+      var newContainer = $("<div>").addClass("container");
+      var newRow = $('<div>').addClass("row");
+      var newLCol = $('<div>').addClass("col-sm-3 col-xs-12");
+      var newRCol = $('<div>').addClass("col-sm-9 col-xs-12");
+      newLCol.append(`<img class="thumbnail" src="${thumbnail}">`);
+      var h2 = $('<h2>').append(data[i].title);
+      var aa = $('<a>').attr("href", link).text("Read this article");
+      newRCol.append(h2).append(aa);
+      newRow.append(newLCol);
+      newRow.append(newRCol);
+      newContainer.append(newRow);
+      recipeCard.append(newContainer);
+      $("#articles").append(recipeCard);
     }
   });
 
 
   // Whenever someone clicks a p tag
-  $(document).on("click", "#btn-scrape", function(event){
+  $(document).on("click", "#btn-scrape", function (event) {
     event.preventDefault();
     $.ajax({
       method: "GET",
       url: "/scrape"
-    }).then(function(data){
+    }).then(function (data) {
       console.log(data);
       location.reload();
     });
   });
 
 
-  $(document).on("click", "p", function () {
+  $(document).on("click", ".recipe-card", function () {
+    if (event.target.nodeName == "A") return;
     // Empty the notes from the note section
     $("#notes").empty();
     // Save the id from the p tag

@@ -42,23 +42,24 @@ app.get("/", function(req, res){
 });
 
 app.get("/scrape", function (req, res) {
-  axios.get("https://www.playfulcooking.com/").then(function (response) {
+  axios.get("https://old.reddit.com/r/recipes/").then(function (response) {
     var $ = cheerio.load(response.data);
 
-    $("article.post").each(function (i, element) {
+    $("a.title").each(function (i, element) {
       var result = {};
+      console.log($(this)
+      .closest("div.thing").find("a.thumbnail").find("img").attr("src"));
 
-      // the relevant data in each article here is is an 'h3 a'
       result.title = $(this)
-        .children("h3").children("a")
         .text();
       result.link = $(this)
-        .children("h3").children("a")
         .attr("href");
+      result.thumbnail = $(this)
+      .closest("div.thing").find("a.thumbnail").find("img").attr("src");
 
       db.Article.create(result)
         .then(function (dbArticle) {
-          console.log(dbArticle);
+          // console.log(dbArticle);
         }).catch(function (err) {
           return res.json(err);
         });

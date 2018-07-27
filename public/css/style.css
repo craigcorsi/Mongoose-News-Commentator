@@ -25,7 +25,14 @@ h2, h3, small {
 
 button {
   margin: 0 auto;
+  margin-top: 10px;
   font-family: "Hanalei Fill", cursive;
+  font-size: 50px;
+  color: black;
+}
+
+small {
+  font-size: 16px;
 }
 
 .jumbotron {
